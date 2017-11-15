@@ -24,6 +24,7 @@
 	VIC_MAX_VALID_MODE and VIC_MAX_NUM in hdmi_tx_module.h */
 #define HDMITX_VIC420_OFFSET	0x100
 #define HDMITX_VIC420_FAKE_OFFSET 0x200
+#define HDMITX_VESA_OFFSET	0x300
 
 #define HDMITX_VIC_MASK			0xff
 
@@ -166,6 +167,8 @@ enum hdmi_vic {
 	HDMI_VIC_Y420_MAX,
 
 	HDMI_VIC_FAKE = HDMITX_VIC420_FAKE_OFFSET,
+
+	HDMIV_800x480p60hz = HDMITX_VESA_OFFSET,
 };
 
 /* Compliance with old definitions */

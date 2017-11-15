@@ -18,6 +18,36 @@
 #include <linux/kernel.h>
 #include <linux/amlogic/hdmi_tx/hdmi_common.h>
 
+static struct hdmi_format_para fmt_para_vesa_800x480p60_4x3 = {
+	.vic = HDMIV_800x480p60hz,
+	.name = "800x480p60hz",
+	.pixel_repetition_factor = 0,
+	.progress_mode = 1,
+	.scrambler_en = 0,
+	.tmds_clk_div40 = 0,
+	.tmds_clk = 32000,
+	.timing = {
+		.pixel_freq = 32000,
+		.h_freq = 30000,
+		.v_freq = 60000,
+		.vsync_polarity = 1,
+		.hsync_polarity = 1,
+		.h_active = 800,
+		.h_total = 992,
+		.h_blank = 192,
+		.h_front = 24,
+		.h_sync = 72,
+		.h_back = 96,
+		.v_active = 480,
+		.v_total = 500,
+		.v_blank = 20,
+		.v_front = 3,
+		.v_sync = 7,
+		.v_back = 10,
+		.v_sync_ln = 1,
+	},
+};
+
 static struct hdmi_format_para fmt_para_1920x1080p60_16x9 = {
 	.vic = HDMI_1920x1080p60_16x9,
 	.name = "1920x1080p60hz",
@@ -713,6 +743,7 @@ static struct hdmi_format_para fmt_para_3840x2160p60_16x9_y420 = {
 /* end of Y420 modes*/
 
 static struct hdmi_format_para *all_fmt_paras[] = {
+	&fmt_para_vesa_800x480p60_4x3,
 	&fmt_para_3840x2160p60_16x9,
 	&fmt_para_3840x2160p50_16x9,
 	&fmt_para_3840x2160p30_16x9,

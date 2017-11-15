@@ -1574,6 +1574,7 @@ int hdmitx_edid_parse(struct hdmitx_dev *hdmitx_device)
 }
 
 static struct dispmode_vic dispmode_vic_tab[] = {
+	{"800x480p60hz", HDMIV_800x480p60hz},
 	{"480i_4_3",  HDMI_480i60},
 	{"480i_rpt",  HDMI_480i60_16x9_rpt},
 	{"480i60hz",	  HDMI_480i60_16x9},

@@ -956,6 +956,7 @@ static ssize_t store_debug(struct device *dev,
 
 /* support format lists */
 const char *disp_mode_t[] = {
+	"800x480p60hz",
 	"480i60hz",
 	"480i_rpt",
 	"480p60hz",

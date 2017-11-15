@@ -313,6 +313,7 @@ static int hdmitx_uboot_already_display(void)
 
 static struct hdmitx_clk hdmitx_clk[] = {
 	/* vic clk_sys clk_phy clk_vid clk_encp clk_enci clk_pixel */
+	{HDMIV_800x480p60hz, 24000, 320000, 32000, 32000, -1, 32000},
 	{HDMI_1920x1080p60_16x9, 24000, 1485000, 148500, 148500, -1, 148500},
 	{HDMI_1920x1080p50_16x9, 24000, 1485000, 148500, 148500, -1, 148500},
 	{HDMI_1920x1080p24_16x9, 24000, 742500, 74250, 74250, -1, 74250},
@@ -1130,6 +1131,22 @@ static void hdmi_tvenc_set(struct hdmitx_vidpara *param)
 	unsigned long vso_begin_evn = 0, vso_begin_odd = 0;
 
 	switch (param->VIC) {
+	case HDMIV_800x480p60hz:
+		INTERLACE_MODE      = 0;
+		PIXEL_REPEAT_VENC   = 0;
+		PIXEL_REPEAT_HDMI   = 0;
+		ACTIVE_PIXELS       = 800;
+		ACTIVE_LINES        = 480;
+		LINES_F0            = 500;
+		LINES_F1            = 500;
+		FRONT_PORCH         = 24;
+		HSYNC_PIXELS        = 72;
+		BACK_PORCH          = 96;
+		EOF_LINES           = 3;
+		VSYNC_LINES         = 7;
+		SOF_LINES           = 10;
+		TOTAL_FRAMES        = 4;
+		break;
 	case HDMI_3840x1080p120hz:
 		INTERLACE_MODE = 0;
 		PIXEL_REPEAT_VENC = 0;

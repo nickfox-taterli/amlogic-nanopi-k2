@@ -69,6 +69,7 @@ struct vmode_tvmode_tab_s {
 };
 
 static struct vmode_tvmode_tab_s mode_tab[] = {
+	{TVMODE_800x480p60hz, VMODE_800x480p60hz},
 	{TVMODE_480I, VMODE_480I},
 	{TVMODE_480I_RPT, VMODE_480I_RPT},
 	{TVMODE_480CVBS, VMODE_480CVBS},
@@ -502,6 +503,18 @@ static struct fps_mode_conv fps_mode_map_60[] = {
 #endif
 
 static struct vinfo_s tv_info[] = {
+	 {
+ 		.name              = "800x480p60hz",
+ 		.mode              = TVMODE_800x480p60hz,
+ 		.width             = 800,
+ 		.height            = 480,
+ 		.field_height      = 480,
+ 		.aspect_ratio_num  = 16,
+ 		.aspect_ratio_den  = 9,
+ 		.sync_duration_num = 60,
+ 		.sync_duration_den = 1,
+ 		.video_clk         = 32000000,
+ 	},
 	{ /* VMODE_480I */
 		.name              = "480i60hz",
 		.mode              = VMODE_480I,
