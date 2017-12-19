@@ -102,6 +102,14 @@ int bcmdhd_init_wlan_mem(void)
 	int i;
 	int j;
 
+	/*
+	
+	1)申请套接字缓冲区.dev_alloc_skb
+	2)申请常规内存,wlan_mem_array就是内存数组,这个数组记录了每一段内存所需长度.
+	3)wlan_static_scan_buf0和wlan_static_scan_buf0是64K大小的一个数组.也是从内核申请.
+	
+	*/
+	
 	for (i = 0; i < 8; i++) {
 		wlan_static_skb[i] = dev_alloc_skb(DHD_SKB_1PAGE_BUFSIZE);
 		if (!wlan_static_skb[i])
